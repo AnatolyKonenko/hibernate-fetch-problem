@@ -6,6 +6,7 @@ import com.example.demo3.entities.nested.Nested3;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,9 +19,11 @@ public class Collector {
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Nested1> nested1;
+    @OrderColumn(name = "nested1")
+    private List<Nested1> nested1;
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Nested2> nested2;
+    @OrderColumn(name = "nested2")
+    private List<Nested2> nested2;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Nested3> nested3;
 }

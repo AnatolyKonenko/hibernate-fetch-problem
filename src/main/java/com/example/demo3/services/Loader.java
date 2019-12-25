@@ -30,7 +30,7 @@ public class Loader {
     private final CollectorRepository collectorRepository;
 
     @Scheduled(fixedDelay=1000000)
-    @Transactional
+    //@Transactional
     public void afterInitialize(){
         List<Collector> all = collectorRepository.findAll();
         for (Collector collector: all){
@@ -54,8 +54,8 @@ public class Loader {
         nested2.setNested22(Set.of(new Nested22()));
         nested2.setNested23(Set.of(new Nested23()));
 
-        collector.setNested1(Set.of(nested1));
-        collector.setNested2(Set.of(nested2));
+        collector.setNested1(List.of(nested1));
+        collector.setNested2(List.of(nested2));
 
         collectorRepository.save(collector);
     }
